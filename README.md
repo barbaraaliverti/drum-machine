@@ -1,4 +1,4 @@
-# Calculator
+# Drum Machine
 
 This is a solution to the [Drum Machine](https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-drum-machine) challenge. [FreeCodeCamp](https://www.freecodecamp.org/) is a platform to to help people learn to code for free.
 
@@ -37,7 +37,9 @@ User Story #7: When a .drum-pad is triggered, a string describing the associated
 
 ### Screenshot
 
-COLOCAR DPEOIS
+![image](https://user-images.githubusercontent.com/64551613/120223772-7ef63380-c218-11eb-8d13-e75be5400340.png)
+![image](https://user-images.githubusercontent.com/64551613/120223806-90d7d680-c218-11eb-99e7-09cc4491fb12.png)
+
 
 ### Links
 
@@ -103,7 +105,8 @@ class PadBank extends React.Component {
 - Pseudo-elements ```:after``` and ```:before``` that I had to research more and understand better to make the buttons with the cool 3D effect that I wanted
 - I am particularly proud of the toggle bank buttons! I was quite hard to make them work properly and the 'Heater Kit' button wouldn't overlap the 'Smooth Piano' button when the latter was pressed. After trying to adjust the z-index and failing, I decided to increase the space between them and it worked for me.
 
-![image](SCREENCAP TOGGLE BTNS)
+![image](https://user-images.githubusercontent.com/64551613/120223861-a64d0080-c218-11eb-992e-69e6741b7982.png) ![image](https://user-images.githubusercontent.com/64551613/120223884-aea53b80-c218-11eb-838c-aab50bdf064b.png)
+
 
 ### Continued development
 
