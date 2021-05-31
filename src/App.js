@@ -1,6 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import React from 'react';
+import PadBank from '../src/components/PadBank/index';
+import ToggleBank from '../src/components/ToggleBank/index';
+import Display from '../src/components/Display/index';
 
 const bankOne = [
   {
@@ -115,137 +118,6 @@ const bankTwo = [
     url: 'https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3'
   }
 ];
-
-class DrumPad extends React.Component {
-  constructor(props) {
-    super(props);
-    this.playSound = this.playSound.bind(this); //função - toca o som
-    this.handleKeyPress = this.handleKeyPress.bind(this);
-  }
-  
-  //The componentDidMount() method runs after the component output has been rendered to the DOM
-  componentDidMount() {
-    document.addEventListener('keydown', this.handleKeyPress);
-  }
-  componentWillUnmount() {
-    document.removeEventListener('keydown', this.handleKeyPress);
-  }
-  handleKeyPress(e) {
-    if (e.keyCode === this.props.keyCode) {
-      
-      this.playSound();
-    }
-  }
-  playSound() {
-    const sound = document.getElementById(this.props.keyTrigger);
-    sound.currentTime = 0;
-    sound.play();
-    this.props.updateDisplay(this.props.clipId.replace(/-/g, ' '));
-  }
-  
-  render() {
-    return (
-      <div 
-        id={this.props.clipId} 
-        className="drum-pad btn btn-light col-3"
-        onClick={this.playSound}
-        >
-        <a>{this.props.keyTrigger}</a> 
-        <audio
-          className='clip'
-          id={this.props.keyTrigger}
-          src={this.props.clip}
-          />
-                 
-      </div>
-    );
-  }  
-}
-
-class PadBank extends React.Component {
-  // eslint-disable-next-line no-useless-constructor
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    let padBank;
-    padBank = this.props.currentPadBank.map((drumObj, i, padBankArr) => {
-        return (
-        <DrumPad
-          clip={padBankArr[i].url}
-          clipId={padBankArr[i].id}
-          keyCode={padBankArr[i].keyCode}
-          keyTrigger={padBankArr[i].keyTrigger}
-          updateDisplay={this.props.updateDisplay}
-        />
-        );
-      });
-   
-    return <div className='pad-bank'>{padBank}</div>;
-  }  
-}
-
-class ToggleBank extends React.Component {
-  constructor(props) {
-    super(props);    
-    console.log(props);
-  } 
-  
-  render() {
-    return(
-      <div id="bank-container">
-        <h4 className="title">bank</h4>
-        <div className="btn-group btn-group-toggle">              
-
-            <input 
-              className="hidden" 
-              id="bank1" 
-              type="radio" 
-              name="options"
-              value={this.props.leftLabel}
-              autocomplete="off" 
-              onChange={this.props.onChange}
-              checked={this.props.checked}
-            >                
-            </input>
-            <label id="label1" for="bank1" className="btn btn-secondary select-bank">
-                {this.props.leftLabel}
-            </label>
-
-
-            <input 
-              className="hidden" 
-              id="bank2" 
-              type="radio" 
-              name="options"
-              value={this.props.rightLabel}
-              autocomplete="off"
-              onChange={this.props.onChange}
-              checked={!this.props.checked}
-            >              
-            </input>
-            <label id="label2" for="bank2" className="btn btn-secondary select-bank">
-                {this.props.rightLabel}
-            </label>
-         </div>
-      </div>     
-    );
-  }  
-}
-
-class Display extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    return (
-      <div id="display-container">
-        <h4 className="title">now playing</h4>
-        <div id="display">{this.props.display}</div>
-      </div>
-    )
-  }
-}
 
 class App extends React.Component {
   constructor(props) {

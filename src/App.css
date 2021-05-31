@@ -85,31 +85,31 @@ body {
   color: var(--dark-gray);
 }
   
-  .drum-pad::after {
-    transition: all .10s linear 0s;
-    content: '';
-    position: absolute;
-    top: 4px;
-    left: -4px;
-    width: 8px;
-    height: 8px;
-    background-color: gray;
-    transform: rotate(45deg);
-    z-index: -1;
-  }
-  
-  .drum-pad::before {
-    transition: all .10s linear 0s;
-    content: '';
-    position: absolute;    
-    bottom: -4px;
-    right: 4px;
-    width: 8px;
-    height: 8px;
-    background-color: gray;
-    transform: rotate(45deg);
-    z-index: -1;
-  }
+.drum-pad::after {
+  transition: all .10s linear 0s;
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: -4px;
+  width: 8px;
+  height: 8px;
+  background-color: gray;
+  transform: rotate(45deg);
+  z-index: -1;
+}
+
+.drum-pad::before {
+  transition: all .10s linear 0s;
+  content: '';
+  position: absolute;    
+  bottom: -4px;
+  right: 4px;
+  width: 8px;
+  height: 8px;
+  background-color: gray;
+  transform: rotate(45deg);
+  z-index: -1;
+}
 
 .btn-light:not(:disabled):not(.disabled):active {
   color: var(--A);
