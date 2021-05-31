@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Modak&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --A: #52797b;
+  --B: #4f948f;
+  --C: #ead7ab;
+  --D: #ebb695;
+  --E: #d48275;
+  --dark-gray: #545B62;
+}
+
+body {
+	align-items: center;
+  display: flex;
+	flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+	width: 100vw;
+}
+
+#container {
+	align-items: center;
+  background-color: var(--A);
+  display: flex;
+  flex-direction: column;  
+  justify-content: center;	
+  height: 100vh;
+	width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 800px) {
+  #drum-machine {
+    width: 700px;
+  }
+}
+
+#controls {
+  align-items: center;
+  display: flex;
+  flex-direction: column;  
+  justify-content: center;
+  
+  font-family: 'Comfortaa', cursive;
+}
+
+.title {
+  color: var(--C);
+  font-family: 'Modak', cursive;
+  text-shadow: 1px 2px gray;
+}
+
+#drum-machine {
+	border-radius: 1em;
+  background-color: var(--E);
+  z-index: 0;
+}
+
+.drum-pad {
+  top: 0;
+  left: 0;
+  transition: all .15s linear 0s;
+  position: relative;
+  display: inline-block;
+  box-shadow: -6px 6px 0 gray;
+  border-style: none;
+  
+  font-family: 'Fredoka One', cursive;
+  color: var(--dark-gray);  
+  font-size: 20px;
+  
+  background-color: var(--C);  
+  margin: 10px;
+  padding: 30px;
+}
+
+.drum-pad:hover {
+  background-color: var(--D);
+  color: var(--dark-gray);
+}
+  
+  .drum-pad::after {
+    transition: all .10s linear 0s;
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: -4px;
+    width: 8px;
+    height: 8px;
+    background-color: gray;
+    transform: rotate(45deg);
+    z-index: -1;
+  }
+  
+  .drum-pad::before {
+    transition: all .10s linear 0s;
+    content: '';
+    position: absolute;    
+    bottom: -4px;
+    right: 4px;
+    width: 8px;
+    height: 8px;
+    background-color: gray;
+    transform: rotate(45deg);
+    z-index: -1;
+  }
+
+.btn-light:not(:disabled):not(.disabled):active {
+  color: var(--A);
+}
+
+.active {
+  top: 6px;
+  left: -6px;
+  box-shadow: none;
+}
+
+.drum-pad:active.btn {
+  top: 6px;
+  left: -6px;
+  box-shadow: none;
+}
+
+.drum-pad:active.btn::after {
+	top: 2px;
+  left: 1px;
+}
+
+.drum-pad:active.btn::before {
+	bottom: 1px;
+  right: 2px;
+}
+
+#bank-container, #display-container {
+  margin: 1rem;
+}
+
+#display {
+  background-color: gray;
+  border-radius: .25rem;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+  color: var(--C);
+  font-weight: 600;
+  padding: 0.5rem;
+  width: 200px;
+}
+
+#author {
+  font-family: 'Poiret One', cursive;
+  color: var(--C);
+  padding: 10px;
+}
+
+.select-bank {
+  box-shadow: -6px 6px 0 gray;
+  color: var(--C);
+  top: 0;
+  left: 0;
+  transition: all .15s linear 0s;
+  display: inline-block;  
+  border-style: none;  
+  margin: 6px;
+  z-index: auto;
+}
+
+.select-bank:hover, .select-bank:active {
+  color: var(--C);
+}
+
+/*fix btn hover*/
+.btn-group-vertical>.btn:hover,
+.btn-group>.btn:hover,
+.btn-group>.btn:active{
+ z-index:auto;
+}
+
+.select-bank::after {
+  transition: all .10s linear 0s;
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: -4px;
+  width: 8px;
+  height: 8px;
+  background-color: gray;
+  transform: rotate(45deg);
+  z-index: -1;
+}
+
+.select-bank::before {
+  transition: all .10s linear 0s;
+  content: '';
+  position: absolute;    
+  bottom: -4px;
+  right: 3px;
+  width: 8px;
+  height: 8px;
+  background-color: gray;
+  transform: rotate(45deg);
+  z-index: -1;
+}
+
+#label1 {
+  border-radius: 0.25em 0 0 0.25em;
+}
+
+#label1, #label2 {
+  z-index: auto;
+}
+
+.hidden {
+  position: absolute;
+  left: -100vw;
+  opacity: 0;
+}
+
+input:checked + label {
+  top: 3px;
+  left: -3px;
+  background-color: var(--dark-gray);
+  box-shadow: -3px 3px 0 gray;
+  z-index: 1;
+}
+
+input:checked + label::after {
+	top: 2px;
+  left: -1px;
+  background-color: gray;
+	width: 4px;
+	height: 4px;
+}
+
+input:checked + label::before {
+	bottom: -2px;
+  right: 1px;
+  background-color: gray;
+	width: 5px;
+	height: 5px;
+}
